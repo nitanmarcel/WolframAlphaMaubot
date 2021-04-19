@@ -25,7 +25,7 @@ class WolframAlphaPlugin(Plugin):
 
         appid = self.config["appid"]
         url_params = urllib.parse.urlencode({"i": search_term, "appid": appid})
-        gif_link =  "https://api.wolframalpha.com/v1/simple?{}".format(url_params)
+        gif_link =  "https://api.wolframalpha.com/v2/simple?{}".format(url_params)
         resp = await self.http.get(gif_link)
         if resp.status == 501:
             await evt.reply("WolframAlpha doesn't understand your query")
